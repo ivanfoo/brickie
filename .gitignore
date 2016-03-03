@@ -1,2 +1,5 @@
-# Ignore binaries
+# Binaries
 brickie
+
+# Artifacts
+build/*
