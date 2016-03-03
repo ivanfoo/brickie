@@ -1,0 +1,16 @@
+language: go
+
+go:
+  - 1.5
+
+sudo: false
+
+before_install:
+  # codecov
+  - pip install --user codecov
+
+script:
+  - make test-coverage
+
+before_deploy:
+  - make packages
