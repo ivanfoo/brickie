@@ -11,6 +11,7 @@ import (
 func main() {
 	parser := flags.NewNamedParser("brickie", flags.Default)
 	parser.AddCommand("build", "build images", "", commands.NewCmdBuild())
+	parser.AddCommand("login", "registry login", "", commands.NewCmdLogin())
 	parser.AddCommand("push", "push images", "", commands.NewCmdPush())
 
 	_, err := parser.Parse()
