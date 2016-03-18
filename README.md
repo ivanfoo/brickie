@@ -1,9 +1,9 @@
 # brickie
-docker CLI tool to build and push images using a remote docker host
+Dependencies free docker CLI tool. Useful when you can't install the docker client locally but you have access to a remote docker host (CI systems, for instance)
 
 ## Usage
 
-To use a remote Docker host securized with TLS:
+brickie will use DOCKER_* environment variables to change its behaviour. To use a remote Docker host securized with TLS:
 
 ```
 export DOCKER_HOST="tcp://remote_host:port
@@ -11,14 +11,16 @@ export DOCKER_VERIFY_TLS=1
 export DOCKER_CERT_PATH=<CERTS_PATH>
 ```
 
-Also, brickie will use the docker's config.json file for auth purpose (if needed)
+You can use the your local Docker dameon instead if you don't set up any of this.
 
-You can use the your local Docker dameon instead if you don't set up any of this
+**LOGIN**
+
+`brickie login --username=foo --password=XXXX --email=foo@bar.com --registry=baz.io`
 
 **BUILD**
 
-`brickie build --name=foo.bar/baz/rab`
+`brickie build --name=baz.io/rab/foo:v1`
 
 **PUSH**
 
-`brickie push --image=foo.bar/baz/rab --registry=foo.bar`
+`brickie push --image=baz.io/rab/foo:v1 --registry=baz.io`
